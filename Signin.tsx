@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Pressable, TextInput, StyleSheet, Image } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
-const Lpage = ({ navigation }: { navigation: NavigationProp<any> }) => {
+const Spage = ({ navigation }: { navigation: NavigationProp<any> }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,7 +13,7 @@ const Lpage = ({ navigation }: { navigation: NavigationProp<any> }) => {
         style={styles.image}
       />
       <View style={styles.loginContainer}>
-        <Text style={styles.loginTitle}>Login</Text>
+        <Text style={styles.loginTitle}>Sign Up</Text>
         <TextInput
           value={username}
           onChangeText={setUsername}
@@ -30,10 +30,10 @@ const Lpage = ({ navigation }: { navigation: NavigationProp<any> }) => {
           secureTextEntry
         />
         <Pressable style={styles.button} onPress={() => {}}>
-          <Text style={styles.buttonText}>Sign In</Text>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </Pressable>
         <Pressable style={styles.googleButton} onPress={() => {}}>
-          <Text style={styles.googleButtonText}>Sign in with Google</Text>
+          <Text style={styles.googleButtonText}>Sign Up with Google</Text>
         </Pressable>
         <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
           <Text style={styles.backButtonText}>Go Back</Text>
@@ -46,7 +46,7 @@ const Lpage = ({ navigation }: { navigation: NavigationProp<any> }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f4f7',
+    backgroundColor: '#f0f4f7', // Light, neutral background
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -63,10 +63,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 25,
     alignItems: 'center',
+    // Subtle shadow for iOS
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 5 },
+    // Elevation for Android
     elevation: 5,
   },
   loginTitle: {
@@ -128,4 +130,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Lpage;
+export default Spage;
