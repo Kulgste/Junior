@@ -4,22 +4,33 @@ import { NavigationProp } from '@react-navigation/native';
 
 const Spage = ({ navigation }: { navigation: NavigationProp<any> }) => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('./assets/Logo.png')} 
+        source={require('./assets/Untitled design.png')}
         style={styles.image}
       />
       <View style={styles.loginContainer}>
         <Text style={styles.loginTitle}>Sign Up</Text>
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          style={styles.loginInput}
+          placeholder='Email'
+          placeholderTextColor='#666'
+          keyboardType='email-address'
+          autoCapitalize='none'
+        />
         <TextInput
           value={username}
           onChangeText={setUsername}
           style={styles.loginInput}
           placeholder='Username'
           placeholderTextColor='#666'
+          autoCapitalize='none'
         />
         <TextInput
           value={password}
@@ -29,16 +40,10 @@ const Spage = ({ navigation }: { navigation: NavigationProp<any> }) => {
           placeholderTextColor='#666'
           secureTextEntry
         />
-        <Pressable style={styles.button}  onPress={() => {
-            if (username == '' || password == ''){
-                <Text>
-                    Enter a username or password
-                </Text>
-            }
-        }}>
+        <Pressable style={styles.button} onPress={() => {}}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </Pressable>
-        <Pressable style={styles.googleButton}>
+        <Pressable style={styles.googleButton} onPress={() => {}}>
           <Text style={styles.googleButtonText}>Sign Up with Google</Text>
         </Pressable>
         <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -52,7 +57,7 @@ const Spage = ({ navigation }: { navigation: NavigationProp<any> }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f4f7', // Light, neutral background
+    backgroundColor: '#f0f4f7',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -69,12 +74,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 25,
     alignItems: 'center',
-    // Subtle shadow for iOS
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 5 },
-    // Elevation for Android
     elevation: 5,
   },
   loginTitle: {
