@@ -3,23 +3,24 @@ import { View, Text, Pressable, TextInput, StyleSheet, Image } from 'react-nativ
 import { NavigationProp } from '@react-navigation/native';
 
 const Lpage = ({ navigation }: { navigation: NavigationProp<any> }) => {
-  const [username, setUsername] = useState('');
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('./assets/Logo.png')} 
+        source={require('./assets/Logo.png')}
         style={styles.image}
       />
       <View style={styles.loginContainer}>
         <Text style={styles.loginTitle}>Login</Text>
         <TextInput
-          value={username}
-          onChangeText={setUsername}
+          value={identifier}
+          onChangeText={setIdentifier}
           style={styles.loginInput}
-          placeholder='Username'
+          placeholder='Username or Email'
           placeholderTextColor='#666'
+          autoCapitalize='none'
         />
         <TextInput
           value={password}
@@ -29,10 +30,8 @@ const Lpage = ({ navigation }: { navigation: NavigationProp<any> }) => {
           placeholderTextColor='#666'
           secureTextEntry
         />
-        <Pressable style={styles.button} onPress={() => {
-            if (username == 'stickr' && password == 'stickr1'){
-                navigation.navigate('Home')
-            }
+        <Pressable style={styles.button} onPress={() =>{
+          navigation.navigate("Home");
         }}>
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
